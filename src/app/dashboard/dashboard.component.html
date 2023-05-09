@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <h1>Records <i class="bi bi-person-lines-fill"></i> </h1>
+    <div class="d-flex">
+      <button (click)="clickAddEmployee()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Employee</button>
+    </div>
+  </div>
+</nav>
+Current Date: {{Today | date }}<br>
+<label>Search for Employee: &nbsp;</label>
+<input [(ngModel)]="employee" > &nbsp;
+<button type="button"(click)="onEmployeeFilter()">Search</button>
+
+<table class="table mt-3">
+  <thead>
+  <tr>
+    <th scope="col">Employee ID</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">ID Number</th>
+    <th scope="col">Salary</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of employeeData | filter:SearchEmployee:'fname' ">
+    <td>{{row.id}}</td>
+    <td>{{row.fname}}</td>
+    <td>{{row.lname}}</td>
+    <td>{{row.email}}</td>
+    <td>{{row.phoneNo}}</td>
+    <td>{{row.idNo}}</td>
+    <td>{{row.salary}}</td>
+
+    <td>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-primary mx-3" (click)="OnUpdate(row)">Edit</button>
+      <button class="btn btn-outline-danger mx-3" (click)="deleteEmployeeDetails(row)" >Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Employee Details <i class="bi bi-person-check"></i></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formvalue">
+          <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" formControlName="fname" class="form-control" id="fname" aria-describedby="fname">
+          </div>
+          <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" formControlName="lname" class="form-control" id="lname" aria-describedby="lname">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="email">
+            <div id="email2" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="phoneNo" class="form-label">Phone Number</label>
+            <input type="text" formControlName="phoneNo" class="form-control" id="phoneNo" minlength="10" maxlength="10">
+          </div>
+          <div class="mb-3">
+            <label for="idNo" class="form-label">ID Number</label>
+            <input type="text" formControlName="idNo" class="form-control" id="idNo" minlength="8" maxlength="8">
+          </div>
+          <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="text" formControlName="salary" class="form-control" id="salary">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()"  class="btn btn-primary">Add Employee</button>
+        <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()"  class="btn btn-primary">Update Employee Details</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "fname": "Haron",
+      "lname": "Kipkurui",
+      "email": "haron@gmail.com",
+      "phoneNo": "0798345789",
+      "idNo": "23455454",
+      "salary": "75000"
+    },
+    {
+      "id": 4,
+      "fname": "Yusuf",
+      "lname": "Abdalla",
+      "email": "abdala@gmail.com",
+      "phoneNo": "0793822434",
+      "idNo": "23244323",
+      "salary": "40222"
+    },
+    {
+      "id": 5,
+      "fname": "Allan",
+      "lname": "Misha",
+      "email": "misha@gmail.com",
+      "phoneNo": "0738231233",
+      "idNo": "32431234",
+      "salary": "43000"
+    },
+    {
+      "id": 6,
+      "fname": "Jemimah",
+      "lname": "Kolo",
+      "email": "kolo@gmail.com",
+      "phoneNo": "0738291928",
+      "idNo": "45687654",
+      "salary": "40000"
+    },
+    {
+      "id": 7,
+      "fname": "Mary",
+      "lname": "James",
+      "email": "mary@gmail.com",
+      "phoneNo": "0723456789",
+      "idNo": "34567890",
+      "salary": "34567"
+    },
+    {
+      "id": 8,
+      "fname": "Rinta",
+      "lname": "Luther",
+      "email": "lutherrinta@gmail.com",
+      "phoneNo": "0705357840",
+      "idNo": "23456789",
+      "salary": "2345678"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
